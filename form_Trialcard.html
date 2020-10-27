@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+<!--<div class="card mb-3">
+  <img class="card-img-top" src="https://dsf.onlinetoprint.com/DSF/TCGResources/cmassets/trialcard/TrialCardLogo-01.jpg" alt="Card image cap">
+</div>-->
+<!-- Image and text -->
+
+  <center><a class="px-2" href="#">
+    <img src="https://dsf.onlinetoprint.com/DSF/TCGResources/cmassets/trialcard/TrialCardLogo-01.jpg" width="200" height="75" class="d-inline-block align-top" alt="">
+    <p><font color="black">New User Entry</font></p>
+  </a></center>
+
+<form id="form" target="_self" onsubmit="return postToGoogle();" action="" autocomplete="on">
+  <div class="form-group row">
+    <label for="FirstName" class="col-3 col-form-label">First Name</label> 
+    <div class="col-9">
+      <input id="firstName" name="FirstName" type="text" required="required" class="form-control">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="LastName" class="col-3 col-form-label">Last Name</label> 
+    <div class="col-9">
+      <input id="lastName" name="LastName" type="text" required="required" class="form-control">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="Email" class="col-3 col-form-label">Email</label> 
+    <div class="col-9">
+      <input id="email" name="Email" type="text" class="form-control" required="required">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="Phone" class="col-3 col-form-label">Phone</label> 
+    <div class="col-9">
+      <input id="phone" name="Phone" type="text" class="form-control">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="permissionLevel" class="col-3 col-form-label">Permission Level</label> 
+    <div class="col-9">
+      <select id="permissionLevel" name="permissionLevel" class="custom-select" required="required">
+        <option value="Admin">Admin</option>
+        <option value="User">User</option>
+        <option value="Approver">Approver</option>
+      </select>
+    </div>
+  </div> 
+  <div class="form-group row">
+    <label class="col-3">Product Access Permissions</label> 
+    <div class="col-9">
+      <div class="custom-control custom-checkbox custom-control-inline">
+        <input name="ProductAccess" id="ProductAccess_0" type="checkbox" class="custom-control-input" value="Business Card" > 
+        <label for="ProductAccess_0" class="custom-control-label">Business Card</label>
+      </div>
+      <div class="custom-control custom-checkbox custom-control-inline">
+        <input name="ProductAccess" id="ProductAccess_1" type="checkbox" class="custom-control-input" value="Letterhead"> 
+        <label for="ProductAccess_1" class="custom-control-label">Letterhead</label>
+      </div>
+      <div class="custom-control custom-checkbox custom-control-inline">
+        <input name="ProductAccess" id="ProductAccess_2" type="checkbox" class="custom-control-input" value="Envelope #10"> 
+        <label for="ProductAccess_2" class="custom-control-label">Envelope #10</label>
+      </div>
+      <div class="custom-control custom-checkbox custom-control-inline">
+        <input name="ProductAccess" id="ProductAccess_3" type="checkbox" class="custom-control-input" value="Branded Envelope and Notecard"> 
+        <label for="ProductAccess_3" class="custom-control-label">Branded Envelope and Notecard</label>
+      </div>
+      <div class="custom-control custom-checkbox custom-control-inline">
+        <input name="ProductAccess" id="ProductAccess_4" type="checkbox" class="custom-control-input" value="All"> 
+        <label for="ProductAccess_4" class="custom-control-label">All</label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="Location" class="col-3 col-form-label">Location</label> 
+    <div class="col-9">
+      <select id="location" name="Location" required="required" class="custom-select" onChange="return setAddress()">
+        <option data-hidden="true" data-mail="0">Choose Location (If location is not listed, enter address in fields below)</option>
+        <option data-mail="1" value="HQ, Mango, Remote, BPI">HQ, Mango, Remote, BPI</option>
+        <option data-mail="2" value="5150">5150</option>
+        <option data-mail="3" value="Gateway">Gateway</option>
+        <option data-mail="4" value="PEC">PEC</option>
+        <option data-mail="5" value="AZ">AZ</option>
+        <option data-mail="6"value="KC">KC</option>
+        <option data-mail="7" value="Warehouse">Warehouse</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="address" class="col-3 col-form-label">Address</label> 
+    <div class="col-9">
+      <input id="address" name="address" type="text" class="form-control">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="city" class="col-3 col-form-label">City</label> 
+    <div class="col-9">
+      <input id="city" name="city" type="text" class="form-control">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="state" class="col-3 col-form-label">State</label> 
+    <div class="col-9">
+      <input id="state" name="state" type="text" class="form-control">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="zip" class="col-3 col-form-label">Zip</label> 
+    <div class="col-9">
+      <input id="zip" name="zip" type="text" class="form-control">
+    </div>
+  </div> 
+  <div class="form-group row">
+    <div class="offset-3 col-9">
+      <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>
+</div>
+
+
+<!--Auto Fill Selected Address Information-->
+      <script>
+    function setAddress(){
+    // find the dropdown
+    var ddl = document.getElementById("location");
+    // find the selected option
+    var selectedOption = ddl.options[ddl.selectedIndex];
+    // find the attribute value
+    var mailValue = selectedOption.getAttribute("data-mail");
+    // find the textbox
+    var addressBox = document.getElementById("address");
+    var cityBox = document.getElementById("city");
+    var stateBox = document.getElementById("state");
+    var zipBox = document.getElementById("zip");
+
+    // set the textbox value
+    if(mailValue=="1"){
+        addressBox.value = "2250 Perimeter Park Drive #300";
+        cityBox.value = "Morrisville";
+        stateBox.value = "NC";
+        zipBox.value = "27560";
+    }
+    else if(mailValue=="2"){
+        addressBox.value = "5150 McCrimmon Parkway #411";
+        cityBox.value = "Morrisville";
+        stateBox.value = "NC";
+        zipBox.value = "27560";
+    }   
+    else if(mailValue=="3"){
+        addressBox.value = "3200 Gateway Centre Boulevard #105";
+        cityBox.value = "Morrisville";
+        stateBox.value = "NC";
+        zipBox.value = "27560";
+    } 
+    else if(mailValue=="4"){
+        addressBox.value = "14001 Weston Parkway #100";
+        cityBox.value = "Cary";
+        stateBox.value = "NC";
+        zipBox.value = "27513";
+    } 
+    else if(mailValue=="5"){
+        addressBox.value = "17255 N 82nd Street #130";
+        cityBox.value = "Scottsdale";
+        stateBox.value = "AZ";
+        zipBox.value = "85255";
+    } 
+        else if(mailValue=="6"){
+        addressBox.value = "2001 NE 46th Street #105";
+        cityBox.value = "Kansas City";
+        stateBox.value = "MO";
+        zipBox.value = "64114";
+    } 
+        else if(mailValue=="7"){
+        addressBox.value = "4018 Patriot Drive #100";
+        cityBox.value = "Durham";
+        stateBox.value = "NC";
+        zipBox.value = "27703";
+    } 
+        else if(mailValue=="0"){
+        addressBox.value = "";
+        cityBox.value = "";
+        stateBox.value = "";
+        zipBox.value = "";
+    } 
+}
+  </script>
+
+  <!-- Submit data to Google Form-->
+    <script>
+//Turn Checkboxes into string data for submission
+    var values = $('input[type="checkbox"]:checked').map(function() {
+      return $(this).val();
+    }).get().join(',');
+    
+//Send Data to Form
+function postToGoogle() {
+      var values = $('input[type="checkbox"]:checked').map(function() {
+      return $(this).val();
+    }).get().join(',');
+
+                var field1 = $("#firstName").val();
+                var field2 = $("#lastName").val();
+                var field3 = $("#email").val();
+                var field4 = $("#phone").val();
+                var field5 = $("#permissionLevel").val();
+                var field6 = values;
+                var field7 = $("#location").val();
+                var field8 = $("#address").val();
+                var field9 = $("#city").val();
+                var field10 = $("#state").val();
+                var field11 = $("#zip").val();
+
+  
+                $.ajax({
+                    url: "https://docs.google.com/forms/d/e/1FAIpQLSeW_KtffedBrZb3ZhllBV6RTyzycoch4-YlOCjo_sz4ddcFog/formResponse?",
+          data: {"entry.1266535593": field1, "entry.290956339": field2, "entry.1766275797": field3, "entry.2101957218": field4, "entry.265414427": field5, "entry.1516672627": field6, "entry.1590902880": field7, "entry.887021487": field8, "entry.276984342": field9, "entry.697771695": field10, "entry.575146491": field11},
+                    type: "POST",
+                    dataType: "xml",
+                    success: function(d)
+          {
+          },
+          error: function(x, y, z)
+            {
+
+              $('#success-msg').show();
+              $('#form').hide();
+              
+            }
+                });
+        return false;
+            }
+</script>
+
+  </body>
+</html>
